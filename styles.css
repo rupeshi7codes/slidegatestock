@@ -1,0 +1,269 @@
+﻿/* General body style - Inter font is good */
+body {
+    font-family: 'Inter', sans-serif;
+}
+
+/* Header styles */
+header {
+    text-align: center;
+}
+
+header h1 {
+    font-size: clamp(1.75rem, 5vw, 2.25rem);
+    font-weight: 700;
+    background: linear-gradient(to right, #4f46e5, #3b82f6);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+header p {
+    color: #6b7280;
+    margin-top: 0.5rem;
+    font-size: clamp(0.875rem, 4vw, 1rem);
+}
+
+/* Form styles */
+form {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 0.75rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e5e7eb;
+}
+
+@media (min-width: 640px) {
+    form {
+        padding: 2rem;
+    }
+}
+
+form h2 {
+    font-size: clamp(1rem, 4vw, 1.25rem);
+    font-weight: 600;
+    color: #1f2937;
+    margin-bottom: 1rem;
+}
+
+form table {
+    width: 100%;
+    text-align: left;
+    border-collapse: collapse;
+}
+
+form .table-header {
+    background: linear-gradient(to right, #f3f4f6, #e5e7eb);
+    color: #374151;
+    font-weight: 600;
+}
+
+form .table-header th {
+    padding: 0.75rem;
+    font-size: clamp(0.75rem, 3vw, 0.875rem);
+}
+
+@media (min-width: 640px) {
+    form .table-header th {
+        padding: 1rem;
+    }
+}
+
+form .table-header th:first-child {
+    border-top-left-radius: 0.5rem;
+}
+
+form .table-header th:last-child {
+    border-top-right-radius: 0.5rem;
+}
+
+form tbody tr td {
+    padding: 0.75rem;
+    border-bottom: 1px solid #e5e7eb;
+    color: #374151;
+}
+
+@media (min-width: 640px) {
+    form tbody tr td {
+        padding: 1rem;
+    }
+}
+
+form tbody tr:last-child td {
+    border-bottom: none;
+}
+
+form tbody tr:nth-child(even) {
+    background-color: #f9fafb;
+}
+
+form input {
+    width: 100%;
+    padding: 0.5rem 0.75rem;
+    border: 1px solid #d1d5db;
+    border-radius: 0.375rem;
+    color: #374151;
+    transition: all 0.3s ease;
+    font-size: clamp(0.875rem, 3.5vw, 1rem);
+    touch-action: manipulation;
+}
+
+@media (min-width: 640px) {
+    form input {
+        padding: 0.75rem 1rem;
+    }
+}
+
+form input:focus {
+    outline: none;
+    border-color: #4f46e5;
+    box-shadow: 0 0 0 2px rgba(79, 70, 229, 0.3);
+}
+
+form input::placeholder {
+    color: #9ca3af;
+    transition: opacity 0.3s ease;
+}
+
+form input:focus::placeholder {
+    opacity: 0.7;
+}
+
+form button[type="submit"] {
+    width: 100%;
+    background: linear-gradient(to right, #4f46e5, #3b82f6);
+    color: white;
+    padding: 0.75rem 1rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    font-size: clamp(0.875rem, 3.5vw, 1rem);
+}
+
+form button[type="submit"]:hover {
+    background: linear-gradient(to right, #4338ca, #2563eb);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
+}
+
+/* Result Table Container */
+#resultTableContainer {
+    margin-top: 1.5rem;
+    padding: 1.5rem;
+    border-radius: 0.75rem;
+}
+
+@media (min-width: 640px) {
+    #resultTableContainer {
+        margin-top: 2rem;
+        padding: 2rem;
+    }
+}
+
+#resultTableContainer h2 {
+    font-size: clamp(1.125rem, 4vw, 1.375rem);
+    font-weight: 600;
+    color: #1f2937;
+    margin-bottom: 1rem;
+}
+
+#captureArea {
+    overflow-x: auto;
+    border-radius: 0.75rem;
+    border: 1px solid #e5e7eb;
+}
+
+#resultTableContainer table {
+    width: 100%;
+    min-width: 600px;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+#resultTableContainer thead th {
+    background-color: #f9fafb;
+    padding: 0.75rem;
+    text-align: left;
+    font-size: clamp(0.625rem, 2.5vw, 0.75rem);
+    font-weight: 600;
+    color: #4b5563;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-bottom: 2px solid #e5e7eb;
+}
+
+@media (min-width: 640px) {
+    #resultTableContainer thead th {
+        padding: 0.875rem 1rem;
+    }
+}
+
+#resultTableContainer tbody td {
+    padding: 0.75rem;
+    font-size: clamp(0.75rem, 3vw, 0.875rem);
+    color: #374151;
+    border-bottom: 1px solid #f3f4f6;
+    transition: background-color 0.2s ease-in-out;
+}
+
+@media (min-width: 640px) {
+    #resultTableContainer tbody td {
+        padding: 0.875rem 1rem;
+    }
+}
+
+#resultTableContainer tbody tr:last-child td {
+    border-bottom: none;
+}
+
+#resultTableContainer tbody tr:hover td {
+    background-color: #f0f9ff;
+}
+
+#resultTableContainer tr.critical td {
+    background-color: #fff1f2;
+    color: #9f1239;
+    font-weight: 500;
+}
+
+#resultTableContainer tr.critical:hover td {
+    background-color: #ffe4e6;
+}
+
+#resultTableContainer tr.warning td {
+    background-color: #fefce8;
+    color: #92400e;
+    font-weight: 500;
+}
+
+#resultTableContainer tr.warning:hover td {
+    background-color: #fef3c7;
+}
+
+#resultTableContainer tr.safe td {
+    background-color: #f0fdf4;
+    color: #065f46;
+    font-weight: 500;
+}
+
+#resultTableContainer tr.safe:hover td {
+    background-color: #dcfce7;
+}
+
+#downloadReportBtn {
+    padding: 0.75rem 1rem;
+    font-size: clamp(0.75rem, 3vw, 0.875rem);
+    letter-spacing: 0.025em;
+    margin-bottom: 2rem; /* Increased to add empty space below */
+}
+
+@media (min-width: 640px) {
+    #downloadReportBtn {
+        padding: 0.875rem 1rem;
+        margin-bottom: 2.5rem; /* Slightly more space on larger screens */
+    }
+}
+
+#downloadReportBtn:hover {
+    /* Handled by Tailwind */
+}
