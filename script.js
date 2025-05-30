@@ -1,4 +1,4 @@
-﻿document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', function () {
     const stockForm = document.getElementById('stockForm');
     const resultTableContainer = document.getElementById('resultTableContainer');
     const tableBody = document.getElementById('tableBody');
