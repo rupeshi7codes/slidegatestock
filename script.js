@@ -4,6 +4,7 @@
     const tableBody = document.getElementById('tableBody');
     const downloadReportBtn = document.getElementById('downloadReportBtn');
     const captureArea = document.getElementById('captureArea');
+    const resultTable = document.getElementById('resultTable');
     const currentDateSpan = document.getElementById('currentDate');
 
     // Set current date in DD/MM/YYYY format
@@ -131,16 +132,37 @@
             return;
         }
 
-        // Capture only the captureArea (title and table, excluding button)
+        // Temporarily adjust captureArea to ensure full table is captured
+        const originalOverflow = captureArea.style.overflowX;
+        const originalWidth = resultTable.style.width;
+        const originalMinWidth = resultTable.style.minWidth;
+
+        // Set table to its natural width to capture full content
+        captureArea.style.overflowX = 'visible';
+        resultTable.style.width = 'auto';
+        resultTable.style.minWidth = 'auto';
+
+        // Get the full dimensions of the captureArea
+        const fullWidth = captureArea.scrollWidth;
+        const fullHeight = captureArea.scrollHeight;
+
+        // Capture the entire captureArea (title and full table)
         html2canvas(captureArea, {
             backgroundColor: "#ffffff",
             useCORS: true,
-            scale: window.devicePixelRatio > 1 ? 2 : 1,
-            width: captureArea.offsetWidth,
-            height: captureArea.offsetHeight,
-            windowWidth: document.body.scrollWidth,
-            windowHeight: document.body.scrollHeight
+            scale: window.devicePixelRatio > 1 ? 2 : 1, // Adjust for high-DPI screens
+            width: fullWidth,
+            height: fullHeight,
+            windowWidth: fullWidth,
+            windowHeight: fullHeight,
+            scrollX: 0,
+            scrollY: 0
         }).then(canvas => {
+            // Restore original styles
+            captureArea.style.overflowX = originalOverflow;
+            resultTable.style.width = originalWidth;
+            resultTable.style.minWidth = originalMinWidth;
+
             const imageDataURL = canvas.toDataURL('image/png');
             const downloadLink = document.createElement('a');
             downloadLink.href = imageDataURL;
@@ -149,6 +171,11 @@
             downloadLink.click();
             document.body.removeChild(downloadLink);
         }).catch(error => {
+            // Restore styles even if there's an error
+            captureArea.style.overflowX = originalOverflow;
+            resultTable.style.width = originalWidth;
+            resultTable.style.minWidth = originalMinWidth;
+
             console.error('Error capturing table image:', error);
             alert('Sorry, there was an error generating the image.');
         });
